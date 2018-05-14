@@ -2,13 +2,17 @@
     "name": "byrokrat/autogiro",
     "description": "Read and write files for the swedish direct debit system autogirot",
     "keywords": ["autogiro"],
-    "homepage": "https://github.com/byrokrat/autogiro",
+    "homepage": "https://github.com/swaner/autogiro",
     "type": "library",
     "license": "GPL-3.0-or-later",
     "authors": [
         {
             "name": "Hannes Forsgård",
             "email": "hannes.forsgard@fripost.org"
+        },
+        {
+            "name": "Johan Svanborg",
+            "email": "johan.svanborg@capcito.com"
         }
     ],
     "autoload": {
@@ -17,10 +21,10 @@
         }
     },
     "require": {
-        "php": ">=7.1",
+        "php": "^5.4.0 || ^7.0.0",
         "ext-mbstring": "*",
-        "byrokrat/amount": "^2",
-        "byrokrat/banking": "^1.4",
+        "byrokrat/amount": "1.0.2",
+        "byrokrat/banking": "1.4.0",
         "byrokrat/id": "^1.1"
     },
     "require-dev": {
