@@ -34,7 +34,7 @@ class TextNode extends Node
      */
     private $validationRegexp;
 
-    public function __construct(int $lineNr = 0, string $value = '', string $validationRegexp = '')
+    public function __construct($lineNr = null, string $value = '', string $validationRegexp = '')
     {
         parent::__construct($lineNr, $value);
         $this->validationRegexp = $validationRegexp;

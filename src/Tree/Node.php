@@ -50,7 +50,7 @@ class Node
      */
     private $value = '';
 
-    public function __construct(int $lineNr = 0, string $value = '')
+    public function __construct($lineNr = null, string $value = '')
     {
         $this->lineNr = $lineNr;
         $this->value = $value;

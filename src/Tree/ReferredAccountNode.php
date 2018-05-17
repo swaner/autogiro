@@ -30,7 +30,7 @@ namespace byrokrat\autogiro\Tree;
  */
 class ReferredAccountNode extends AccountNode
 {
-    public function __construct(int $lineNr = 0, string $referredValue = '')
+    public function __construct($lineNr = null, string $referredValue = '')
     {
         parent::__construct($lineNr, '');
         $this->setAttribute('referred_value', $referredValue);

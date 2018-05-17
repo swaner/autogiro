@@ -29,7 +29,7 @@ use byrokrat\autogiro\Visitor\VisitorFactory;
  */
 class ParserFactory extends VisitorFactory
 {
-    public function createParser(int $flags = 0)
+    public function createParser($flags = null)
     {
         return new Parser(new Grammar, $this->createVisitors($flags));
     }
