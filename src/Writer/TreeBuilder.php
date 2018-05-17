@@ -239,11 +239,11 @@ class TreeBuilder
      * Add an incoming payment request to tree
      */
     public function addIncomingPaymentRequest(
-        string $payerNr,
+        $payerNr,
         SEK $amount,
         \DateTimeInterface $date,
-        string $ref,
-        string $interval,
+        $ref,
+        $interval,
         int $repetitions
     )  {
         $this->addPaymentRequest(
@@ -261,11 +261,11 @@ class TreeBuilder
      * Add an outgoing payment request to tree
      */
     public function addOutgoingPaymentRequest(
-        string $payerNr,
+        $payerNr,
         SEK $amount,
         \DateTimeInterface $date,
-        string $ref,
-        string $interval,
+        $ref,
+        $interval,
         int $repetitions
     )  {
         $this->addPaymentRequest(
@@ -282,7 +282,7 @@ class TreeBuilder
     /**
      * Add an incoming payment at next possible bank date request to tree
      */
-    public function addImmediateIncomingPaymentRequest(string $payerNr, SEK $amount, string $ref) 
+    public function addImmediateIncomingPaymentRequest($payerNr, SEK $amount, string $ref) 
     {
         $this->addImmediatePaymentRequest(IncomingPaymentRequest::CLASS, $payerNr, $amount, $ref);
     }
@@ -290,7 +290,7 @@ class TreeBuilder
     /**
      * Add an outgoing payment at next possible bank date request to tree
      */
-    public function addImmediateOutgoingPaymentRequest(string $payerNr, SEK $amount, string $ref) 
+    public function addImmediateOutgoingPaymentRequest($payerNr, SEK $amount, string $ref) 
     {
         $this->addImmediatePaymentRequest(OutgoingPaymentRequest::CLASS, $payerNr, $amount, $ref);
     }

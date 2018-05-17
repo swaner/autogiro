@@ -35,7 +35,7 @@ class WriterFactory extends VisitorFactory
      * @param Bankgiro           $bankgiro Payee bankgiro account number
      * @param \DateTimeInterface $date     Optional creation date
      */
-    public function createWriter(string $bgcNr, Bankgiro $bankgiro, \DateTimeInterface $date = null)
+    public function createWriter($bgcNr, $bankgiro, $date = null)
     {
         return new Writer(
             new TreeBuilder(

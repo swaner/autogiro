@@ -50,7 +50,7 @@ class Parser
     /**
      * @throws ContentException If grammar fails
      */
-    public function parse(string $content)
+    public function parse($content)
     {
         try {
             $tree = $this->grammar->parse($content);
