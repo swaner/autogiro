@@ -144,9 +144,9 @@ class Writer
         string $payerNr,
         SEK $amount,
         \DateTimeInterface $date,
-        string $ref = '',
-        string $interval = Intervals::INTERVAL_ONCE,
-        int $repetitions = 0
+        $ref = '',
+        $interval = Intervals::INTERVAL_ONCE,
+        $repetitions = 0
     )  {
         $this->treeBuilder->addIncomingPaymentRequest($payerNr, $amount, $date, $ref, $interval, $repetitions);
     }
