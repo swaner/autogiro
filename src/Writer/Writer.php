@@ -160,10 +160,10 @@ class Writer
      * @param string             $ref         Custom payment reference number
      */
     public function addMonthlyPayment(
-        string $payerNr,
+        $payerNr,
         SEK $amount,
         \DateTimeInterface $date,
-        string $ref = ''
+        $ref = ''
     )  {
         $this->addPayment($payerNr, $amount, $date, $ref, Intervals::INTERVAL_MONTHLY_ON_DATE, 0);
     }
@@ -175,7 +175,7 @@ class Writer
      * @param SEK    $amount  The requested payment amount
      * @param string $ref     Custom payment reference number
      */
-    public function addImmediatePayment(string $payerNr, SEK $amount, string $ref = '') 
+    public function addImmediatePayment(string $payerNr, SEK $amount, $ref = '') 
     {
         $this->treeBuilder->addImmediateIncomingPaymentRequest($payerNr, $amount, $ref);
     }
@@ -194,9 +194,9 @@ class Writer
         string $payerNr,
         SEK $amount,
         \DateTimeInterface $date,
-        string $ref = '',
-        string $interval = Intervals::INTERVAL_ONCE,
-        int $repetitions = 0
+        $ref = '',
+        $interval = Intervals::INTERVAL_ONCE,
+        $repetitions = 0
     )  {
         $this->treeBuilder->addOutgoingPaymentRequest($payerNr, $amount, $date, $ref, $interval, $repetitions);
     }
@@ -208,7 +208,7 @@ class Writer
      * @param SEK    $amount  The requested payment amount
      * @param string $ref     Custom payment reference number
      */
-    public function addImmediateOutgoingPayment(string $payerNr, SEK $amount, string $ref = '') 
+    public function addImmediateOutgoingPayment(string $payerNr, SEK $amount, $ref = '') 
     {
         $this->treeBuilder->addImmediateOutgoingPaymentRequest($payerNr, $amount, $ref);
     }
