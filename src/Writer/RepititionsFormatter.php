@@ -29,7 +29,7 @@ use byrokrat\autogiro\Exception\LogicException;
  */
 class RepititionsFormatter
 {
-    public function format(int $repititions): string
+    public function format(int $repititions)
     {
         if ($repititions > 999 || $repititions < 0) {
             throw new LogicException("Invalid number of repitions: $repititions");

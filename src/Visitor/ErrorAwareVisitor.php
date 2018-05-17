@@ -37,7 +37,7 @@ class ErrorAwareVisitor extends Visitor
         $this->errorObj = $errorObj;
     }
 
-    public function getErrorObject(): ErrorObject
+    public function getErrorObject()
     {
         return $this->errorObj;
     }

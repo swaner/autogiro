@@ -30,7 +30,7 @@ use byrokrat\autogiro\Exception\LogicException;
  */
 class IntervalFormatter
 {
-    public function format(string $interval): string
+    public function format(string $interval)
     {
         if (!isset(Intervals::MESSAGE_MAP[$interval])) {
             throw new LogicException("Invalid interval: $interval");

@@ -46,7 +46,7 @@ class ContentException extends RuntimeException
     /**
      * @return string[]
      */
-    public function getErrors(): array
+    public function getErrors()
     {
         return $this->errors;
     }

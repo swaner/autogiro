@@ -46,7 +46,7 @@ class VisitorContainer extends ErrorAwareVisitor
      *
      * @return VisitorInterface[]
      */
-    public function getVisitors(): array
+    public function getVisitors()
     {
         return $this->visitors;
     }

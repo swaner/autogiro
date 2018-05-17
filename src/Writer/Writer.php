@@ -58,7 +58,7 @@ class Writer
     /**
      * Build and return request content
      */
-    public function getContent(): string
+    public function getContent()
     {
         $tree = $this->treeBuilder->buildTree();
         $tree->accept($this->visitor);

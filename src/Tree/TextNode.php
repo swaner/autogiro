@@ -40,7 +40,7 @@ class TextNode extends Node
         $this->validationRegexp = $validationRegexp;
     }
 
-    public function getValidationRegexp(): string
+    public function getValidationRegexp()
     {
         return $this->validationRegexp;
     }

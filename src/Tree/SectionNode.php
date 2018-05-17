@@ -36,7 +36,7 @@ class SectionNode extends Node
         }
     }
 
-    public function getLineNr(): int
+    public function getLineNr()
     {
         return $this->getChild('1')->getLineNr();
     }

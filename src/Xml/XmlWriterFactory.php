@@ -27,7 +27,7 @@ namespace byrokrat\autogiro\Xml;
  */
 class XmlWriterFactory
 {
-    public function createXmlWriter(): XmlWriter
+    public function createXmlWriter()
     {
         return new XmlWriter(new Stringifier);
     }

@@ -39,7 +39,7 @@ class XmlWriter
         $this->stringifier = $stringifier;
     }
 
-    public function asXml(Node $node): string
+    public function asXml(Node $node)
     {
         $writer = new \XMLWriter();
         $writer->openMemory();

@@ -73,7 +73,7 @@ class Node
     /**
      * Get line number this node definition started at
      */
-    public function getLineNr(): int
+    public function getLineNr()
     {
         return $this->lineNr;
     }
@@ -81,7 +81,7 @@ class Node
     /**
      * Get node type identifier
      */
-    public function getType(): string
+    public function getType()
     {
         return basename(str_replace('\\', '/', get_class($this)));
     }
@@ -89,7 +89,7 @@ class Node
     /**
      * Get raw value wrapped by node
      */
-    public function getValue(): string
+    public function getValue()
     {
         return $this->value;
     }
@@ -119,7 +119,7 @@ class Node
     /**
      * Check if attribute has been set
      */
-    public function hasAttribute(string $name): bool
+    public function hasAttribute(string $name)
     {
         return isset($this->attributes[$name]);
     }
@@ -127,7 +127,7 @@ class Node
     /**
      * Get all registered attributes
      */
-    public function getAttributes(): array
+    public function getAttributes()
     {
         return $this->attributes;
     }
@@ -157,7 +157,7 @@ class Node
     /**
      * Check if child exists
      */
-    public function hasChild(string $name): bool
+    public function hasChild(string $name)
     {
         return isset($this->children[$name]);
     }
@@ -167,7 +167,7 @@ class Node
      *
      * @return Node[]
      */
-    public function getChildren(): array
+    public function getChildren()
     {
         return $this->children;
     }

@@ -40,7 +40,7 @@ class Stringifier
     /**
      * Cast value to string
      */
-    public function stringify($value): string
+    public function stringify($value)
     {
         if ($value instanceof \DateTimeInterface) {
             return $value->format('Y-m-d');

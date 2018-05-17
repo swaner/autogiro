@@ -298,7 +298,7 @@ class TreeBuilder
     /**
      * Get the created request tree
      */
-    public function buildTree(): FileNode
+    public function buildTree()
     {
         $sections = [];
 

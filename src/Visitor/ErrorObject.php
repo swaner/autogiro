@@ -35,7 +35,7 @@ class ErrorObject
     /**
      * Check if any errors have been found
      */
-    public function hasErrors(): bool
+    public function hasErrors()
     {
         return !empty($this->getErrors());
     }
@@ -45,7 +45,7 @@ class ErrorObject
      *
      * @return string[]
      */
-    public function getErrors(): array
+    public function getErrors()
     {
         return $this->errors;
     }
