@@ -40,12 +40,12 @@ class MessageVisitor extends ErrorAwareVisitor
      */
     private $layout;
 
-    public function beforeFileNode(FileNode $node): void
+    public function beforeFileNode(FileNode $node)
     {
         $this->layout = $node->getAttribute('layout');
     }
 
-    public function beforeMessageNode(MessageNode $node): void
+    public function beforeMessageNode(MessageNode $node)
     {
         if ($node->hasAttribute('message')) {
             return;
@@ -67,7 +67,7 @@ class MessageVisitor extends ErrorAwareVisitor
         $node->setAttribute('message', Messages::MESSAGE_MAP[$messageId]);
     }
 
-    public function beforeIntervalNode(IntervalNode $node): void
+    public function beforeIntervalNode(IntervalNode $node)
     {
         if ($node->hasAttribute('message')) {
             return;

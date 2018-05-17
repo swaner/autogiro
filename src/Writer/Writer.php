@@ -72,7 +72,7 @@ class Writer
     /**
      * Reset internal build queue
      */
-    public function reset(): void
+    public function reset() 
     {
         $this->treeBuilder->reset();
     }
@@ -84,7 +84,7 @@ class Writer
      * @param AccountNumber $account Payer account number
      * @param IdInterface   $id      Payer id number
      */
-    public function addNewMandate(string $payerNr, AccountNumber $account, IdInterface $id): void
+    public function addNewMandate(string $payerNr, AccountNumber $account, IdInterface $id) 
     {
         $this->treeBuilder->addCreateMandateRequest($payerNr, $account, $id);
     }
@@ -94,7 +94,7 @@ class Writer
      *
      * @param string $payerNr Number identifying the payer
      */
-    public function deleteMandate(string $payerNr): void
+    public function deleteMandate(string $payerNr) 
     {
         $this->treeBuilder->addDeleteMandateRequest($payerNr);
     }
@@ -104,7 +104,7 @@ class Writer
      *
      * @param string $payerNr Number identifying the payer
      */
-    public function acceptDigitalMandate(string $payerNr): void
+    public function acceptDigitalMandate(string $payerNr) 
     {
         $this->treeBuilder->addAcceptDigitalMandateRequest($payerNr);
     }
@@ -114,7 +114,7 @@ class Writer
      *
      * @param string $payerNr Number identifying the payer
      */
-    public function rejectDigitalMandate(string $payerNr): void
+    public function rejectDigitalMandate(string $payerNr) 
     {
         $this->treeBuilder->addRejectDigitalMandateRequest($payerNr);
     }
@@ -125,7 +125,7 @@ class Writer
      * @param string $payerNr    Old number identifying the payer
      * @param string $newPayerNr New number identifying the payer
      */
-    public function updateMandate(string $payerNr, string $newPayerNr): void
+    public function updateMandate(string $payerNr, string $newPayerNr) 
     {
         $this->treeBuilder->addUpdateMandateRequest($payerNr, $newPayerNr);
     }
@@ -147,7 +147,7 @@ class Writer
         string $ref = '',
         string $interval = Intervals::INTERVAL_ONCE,
         int $repetitions = 0
-    ): void {
+    )  {
         $this->treeBuilder->addIncomingPaymentRequest($payerNr, $amount, $date, $ref, $interval, $repetitions);
     }
 
@@ -164,7 +164,7 @@ class Writer
         SEK $amount,
         \DateTimeInterface $date,
         string $ref = ''
-    ): void {
+    )  {
         $this->addPayment($payerNr, $amount, $date, $ref, Intervals::INTERVAL_MONTHLY_ON_DATE, 0);
     }
 
@@ -175,7 +175,7 @@ class Writer
      * @param SEK    $amount  The requested payment amount
      * @param string $ref     Custom payment reference number
      */
-    public function addImmediatePayment(string $payerNr, SEK $amount, string $ref = ''): void
+    public function addImmediatePayment(string $payerNr, SEK $amount, string $ref = '') 
     {
         $this->treeBuilder->addImmediateIncomingPaymentRequest($payerNr, $amount, $ref);
     }
@@ -197,7 +197,7 @@ class Writer
         string $ref = '',
         string $interval = Intervals::INTERVAL_ONCE,
         int $repetitions = 0
-    ): void {
+    )  {
         $this->treeBuilder->addOutgoingPaymentRequest($payerNr, $amount, $date, $ref, $interval, $repetitions);
     }
 
@@ -208,7 +208,7 @@ class Writer
      * @param SEK    $amount  The requested payment amount
      * @param string $ref     Custom payment reference number
      */
-    public function addImmediateOutgoingPayment(string $payerNr, SEK $amount, string $ref = ''): void
+    public function addImmediateOutgoingPayment(string $payerNr, SEK $amount, string $ref = '') 
     {
         $this->treeBuilder->addImmediateOutgoingPaymentRequest($payerNr, $amount, $ref);
     }

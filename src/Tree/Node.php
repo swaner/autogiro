@@ -59,7 +59,7 @@ class Node
     /**
      * Accept a visitor
      */
-    public function accept(VisitorInterface $visitor): void
+    public function accept(VisitorInterface $visitor)
     {
         $visitor->visitBefore($this);
 
@@ -100,7 +100,7 @@ class Node
      * @param string $name  Name of attribute
      * @param mixed  $value Value of attribute
      */
-    public function setAttribute(string $name, $value): void
+    public function setAttribute(string $name, $value)
     {
         $this->attributes[$name] = $value;
     }
@@ -135,7 +135,7 @@ class Node
     /**
      * Set a child node
      */
-    public function setChild(string $name, Node $child): void
+    public function setChild(string $name, Node $child)
     {
         $this->children[$name] = $child;
     }
@@ -145,7 +145,7 @@ class Node
      *
      * @throws LogicException If child does not exist
      */
-    public function getChild(string $name): Node
+    public function getChild(string $name)
     {
         if (!$this->hasChild($name)) {
             throw new LogicException("Trying to read unknown child $name");

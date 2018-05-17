@@ -53,7 +53,7 @@ class ErrorObject
     /**
      * Add error message to store
      */
-    public function addError(string $msg, string ...$args): void
+    public function addError(string $msg, string ...$args)
     {
         $this->errors[] = sprintf($msg, ...$args);
     }
@@ -61,7 +61,7 @@ class ErrorObject
     /**
      * Reset error store
      */
-    public function resetErrors(): void
+    public function resetErrors()
     {
         $this->errors = [];
     }

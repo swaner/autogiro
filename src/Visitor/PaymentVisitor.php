@@ -33,19 +33,19 @@ use byrokrat\autogiro\Tree\ImmediateDateNode;
  */
 class PaymentVisitor extends ErrorAwareVisitor
 {
-    public function beforeIncomingPaymentRequest(IncomingPaymentRequest $node): void
+    public function beforeIncomingPaymentRequest(IncomingPaymentRequest $node) 
     {
         $this->validateImmediateDateWithInterval($node);
         $this->validateRepetitionsWithoutInterval($node);
     }
 
-    public function beforeOutgoingPaymentRequest(OutgoingPaymentRequest $node): void
+    public function beforeOutgoingPaymentRequest(OutgoingPaymentRequest $node) 
     {
         $this->validateImmediateDateWithInterval($node);
         $this->validateRepetitionsWithoutInterval($node);
     }
 
-    private function validateImmediateDateWithInterval(Node $node): void
+    private function validateImmediateDateWithInterval(Node $node) 
     {
         if ($node->getChild('date') instanceof ImmediateDateNode
             && $node->getChild('interval')->getValue() != Intervals::INTERVAL_ONCE
@@ -57,7 +57,7 @@ class PaymentVisitor extends ErrorAwareVisitor
         }
     }
 
-    private function validateRepetitionsWithoutInterval(Node $node): void
+    private function validateRepetitionsWithoutInterval(Node $node) 
     {
         if ($node->getChild('interval')->getValue() == Intervals::INTERVAL_ONCE
             && trim($node->getChild('repetitions')->getValue()) != ''

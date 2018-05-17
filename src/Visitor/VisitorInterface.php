@@ -30,10 +30,10 @@ interface VisitorInterface
     /**
      * Generic method for visiting a node before its children
      */
-    public function visitBefore(Node $node): void;
+    public function visitBefore(Node $node) ;
 
     /**
      * Generic method for visiting a node after its children
      */
-    public function visitAfter(Node $node): void;
+    public function visitAfter(Node $node) ;
 }

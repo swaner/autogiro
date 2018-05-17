@@ -33,27 +33,27 @@ use byrokrat\autogiro\Tree\TextNode;
  */
 class TextVisitor extends ErrorAwareVisitor
 {
-    public function beforeTextNode(TextNode $node): void
+    public function beforeTextNode(TextNode $node) 
     {
         $this->validateRegexp($node, "Text value '%s' does not match expected %s on line %s");
     }
 
-    public function beforeRepetitionsNode(RepetitionsNode $node): void
+    public function beforeRepetitionsNode(RepetitionsNode $node) 
     {
         $this->validateRegexp($node, "Repeats '%s' does not match expected %s on line %s");
     }
 
-    public function beforeBgcNumberNode(BgcNumberNode $node): void
+    public function beforeBgcNumberNode(BgcNumberNode $node) 
     {
         $this->validateRegexp($node, "BGC customer number '%s' does not match expected %s on line %s");
     }
 
-    public function beforePayerNumberNode(PayerNumberNode $node): void
+    public function beforePayerNumberNode(PayerNumberNode $node) 
     {
         $this->validateRegexp($node, "Payer number '%s' does not match expected %s on line %s");
     }
 
-    private function validateRegexp(TextNode $node, string $errorMsg): void
+    private function validateRegexp(TextNode $node, string $errorMsg) 
     {
         if (!$node->getValidationRegexp()) {
             return;

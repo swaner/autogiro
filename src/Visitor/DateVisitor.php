@@ -32,17 +32,17 @@ use byrokrat\autogiro\Tree\DateTimeNode;
  */
 class DateVisitor extends ErrorAwareVisitor
 {
-    public function beforeDateNode(DateNode $node): void
+    public function beforeDateNode(DateNode $node)
     {
         $this->setDateAttribute($node, $node->getValue());
     }
 
-    public function beforeDateTimeNode(DateTimeNode $node): void
+    public function beforeDateTimeNode(DateTimeNode $node)
     {
         $this->setDateAttribute($node, substr($node->getValue(), 0, -6));
     }
 
-    private function setDateAttribute(DateNode $node, string $value): void
+    private function setDateAttribute(DateNode $node, string $value)
     {
         if ($node->hasAttribute('date')) {
             return;

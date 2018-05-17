@@ -53,17 +53,17 @@ class AccountVisitor extends ErrorAwareVisitor
         $this->bankgiroFactory = $bankgiroFactory;
     }
 
-    public function beforeAccountNode(AccountNode $node): void
+    public function beforeAccountNode(AccountNode $node)
     {
         $this->writeAccountAttr($node->getValue(), $node, $this->accountFactory);
     }
 
-    public function beforeBankgiroNode(BankgiroNode $node): void
+    public function beforeBankgiroNode(BankgiroNode $node)
     {
         $this->writeAccountAttr($node->getValue(), $node, $this->bankgiroFactory);
     }
 
-    public function beforeReferredAccountNode(ReferredAccountNode $node): void
+    public function beforeReferredAccountNode(ReferredAccountNode $node)
     {
         if (!$node->hasAttribute('referred_value')) {
             return;
@@ -72,7 +72,7 @@ class AccountVisitor extends ErrorAwareVisitor
         $this->writeAccountAttr($node->getAttribute('referred_value'), $node, $this->accountFactory);
     }
 
-    private function writeAccountAttr(string $number, Node $node, AccountFactory $factory): void
+    private function writeAccountAttr(string $number, Node $node, AccountFactory $factory)
     {
         if ($node->hasAttribute('account')) {
             return;

@@ -60,7 +60,7 @@ class TreeBuilder
     /**
      * Map section classes to record store array names
      */
-    private const SECTION_TO_RECORD_STORE_MAP = [
+    const SECTION_TO_RECORD_STORE_MAP = [
         MandateRequestSection::CLASS => 'mandates',
         PaymentRequestSection::CLASS => 'payments',
         AmendmentRequestSection::CLASS => 'amendments'
@@ -136,7 +136,7 @@ class TreeBuilder
     /**
      * Reset builder to initial state
      */
-    public function reset(): void
+    public function reset()
     {
         $this->opening = new RequestOpening(
             0,
@@ -157,7 +157,7 @@ class TreeBuilder
     /**
      * Add a new mandate request to tree
      */
-    public function addCreateMandateRequest(string $payerNr, AccountNumber $account, IdInterface $id): void
+    public function addCreateMandateRequest(string $payerNr, AccountNumber $account, IdInterface $id) 
     {
         $this->mandates[] = new CreateMandateRequest(
             0,
@@ -174,7 +174,7 @@ class TreeBuilder
     /**
      * Add a delete mandate request to tree
      */
-    public function addDeleteMandateRequest(string $payerNr): void
+    public function addDeleteMandateRequest(string $payerNr) 
     {
         $this->mandates[] = new DeleteMandateRequest(
             0,
@@ -189,7 +189,7 @@ class TreeBuilder
     /**
      * Add an accept digital mandate request to tree
      */
-    public function addAcceptDigitalMandateRequest(string $payerNr): void
+    public function addAcceptDigitalMandateRequest(string $payerNr) 
     {
         $this->mandates[] = new AcceptDigitalMandateRequest(
             0,
@@ -204,7 +204,7 @@ class TreeBuilder
     /**
      * Add a reject digital mandate request to tree
      */
-    public function addRejectDigitalMandateRequest(string $payerNr): void
+    public function addRejectDigitalMandateRequest(string $payerNr) 
     {
         $this->mandates[] = new RejectDigitalMandateRequest(
             0,
@@ -221,7 +221,7 @@ class TreeBuilder
     /**
      * Add an update mandate request to tree
      */
-    public function addUpdateMandateRequest(string $payerNr, string $newPayerNr): void
+    public function addUpdateMandateRequest(string $payerNr, string $newPayerNr) 
     {
         $this->mandates[] = new UpdateMandateRequest(
             0,
@@ -245,7 +245,7 @@ class TreeBuilder
         string $ref,
         string $interval,
         int $repetitions
-    ): void {
+    )  {
         $this->addPaymentRequest(
             IncomingPaymentRequest::CLASS,
             $payerNr,
@@ -267,7 +267,7 @@ class TreeBuilder
         string $ref,
         string $interval,
         int $repetitions
-    ): void {
+    )  {
         $this->addPaymentRequest(
             OutgoingPaymentRequest::CLASS,
             $payerNr,
@@ -282,7 +282,7 @@ class TreeBuilder
     /**
      * Add an incoming payment at next possible bank date request to tree
      */
-    public function addImmediateIncomingPaymentRequest(string $payerNr, SEK $amount, string $ref): void
+    public function addImmediateIncomingPaymentRequest(string $payerNr, SEK $amount, string $ref) 
     {
         $this->addImmediatePaymentRequest(IncomingPaymentRequest::CLASS, $payerNr, $amount, $ref);
     }
@@ -290,7 +290,7 @@ class TreeBuilder
     /**
      * Add an outgoing payment at next possible bank date request to tree
      */
-    public function addImmediateOutgoingPaymentRequest(string $payerNr, SEK $amount, string $ref): void
+    public function addImmediateOutgoingPaymentRequest(string $payerNr, SEK $amount, string $ref) 
     {
         $this->addImmediatePaymentRequest(OutgoingPaymentRequest::CLASS, $payerNr, $amount, $ref);
     }
@@ -319,7 +319,7 @@ class TreeBuilder
         string $ref,
         string $interval,
         int $repetitions
-    ): void {
+    )  {
         $this->payments[] = new $classname(
             0,
             [
@@ -336,7 +336,7 @@ class TreeBuilder
         );
     }
 
-    private function addImmediatePaymentRequest(string $classname, string $payerNr, SEK $amount, string $ref): void
+    private function addImmediatePaymentRequest(string $classname, string $payerNr, SEK $amount, string $ref) 
     {
         $this->payments[] = new $classname(
             0,

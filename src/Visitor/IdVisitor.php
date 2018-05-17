@@ -54,7 +54,7 @@ class IdVisitor extends ErrorAwareVisitor
         $this->personalIdFactory = $personalIdFactory;
     }
 
-    public function beforeIdNode(IdNode $node): void
+    public function beforeIdNode(IdNode $node)
     {
         if ($node->hasAttribute('id')) {
             return;
@@ -78,7 +78,7 @@ class IdVisitor extends ErrorAwareVisitor
         }
     }
 
-    private function createOrganizationId(IdNode $node): void
+    private function createOrganizationId(IdNode $node)
     {
         $node->setAttribute(
             'id',
@@ -86,7 +86,7 @@ class IdVisitor extends ErrorAwareVisitor
         );
     }
 
-    private function createPersonalId(IdNode $node): void
+    private function createPersonalId(IdNode $node)
     {
         $node->setAttribute(
             'id',

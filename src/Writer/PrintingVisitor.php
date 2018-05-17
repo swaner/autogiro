@@ -56,45 +56,45 @@ class PrintingVisitor extends Visitor
      */
     private $output;
 
-    public function setOutput(Output $output): void
+    public function setOutput(Output $output) 
     {
         $this->output = $output;
     }
 
-    public function beforeDateNode(DateNode $node): void
+    public function beforeDateNode(DateNode $node) 
     {
         $this->assertAttribute($node, 'date', \DateTimeInterface::CLASS);
         $this->output->write($node->getAttribute('date')->format('Ymd'));
     }
 
-    public function beforeImmediateDateNode(): void
+    public function beforeImmediateDateNode() 
     {
         $this->output->write('GENAST  ');
     }
 
-    public function beforeTextNode(TextNode $node): void
+    public function beforeTextNode(TextNode $node) 
     {
         $this->output->write($node->getValue());
     }
 
-    public function beforeBgcNumberNode(BgcNumberNode $node): void
+    public function beforeBgcNumberNode(BgcNumberNode $node) 
     {
         $this->output->write(str_pad($node->getValue(), 6, '0', STR_PAD_LEFT));
     }
 
-    public function beforeBankgiroNode(BankgiroNode $node): void
+    public function beforeBankgiroNode(BankgiroNode $node) 
     {
         $this->assertAttribute($node, 'account', AccountNumber::CLASS);
         $number = $node->getAttribute('account')->getSerialNumber() . $node->getAttribute('account')->getCheckDigit();
         $this->output->write(str_pad($number, 10, '0', STR_PAD_LEFT));
     }
 
-    public function beforePayerNumberNode(PayerNumberNode $node): void
+    public function beforePayerNumberNode(PayerNumberNode $node) 
     {
         $this->output->write(str_pad($node->getValue(), 16, '0', STR_PAD_LEFT));
     }
 
-    public function beforeAccountNode(AccountNode $node): void
+    public function beforeAccountNode(AccountNode $node) 
     {
         $this->assertAttribute($node, 'account', AccountNumber::CLASS);
         $number = $node->getAttribute('account')->getSerialNumber() . $node->getAttribute('account')->getCheckDigit();
@@ -104,17 +104,17 @@ class PrintingVisitor extends Visitor
         );
     }
 
-    public function beforeIntervalNode(IntervalNode $node): void
+    public function beforeIntervalNode(IntervalNode $node) 
     {
         $this->output->write($node->getValue());
     }
 
-    public function beforeRepetitionsNode(RepetitionsNode $node): void
+    public function beforeRepetitionsNode(RepetitionsNode $node) 
     {
         $this->output->write($node->getValue());
     }
 
-    public function beforeAmountNode(AmountNode $node): void
+    public function beforeAmountNode(AmountNode $node) 
     {
         $this->assertAttribute($node, 'amount', SEK::CLASS);
         $this->output->write(
@@ -122,7 +122,7 @@ class PrintingVisitor extends Visitor
         );
     }
 
-    public function beforeIdNode(IdNode $node): void
+    public function beforeIdNode(IdNode $node) 
     {
         $this->assertAttribute($node, 'id', IdInterface::CLASS);
         if ($node->getAttribute('id') instanceof PersonalId) {
@@ -133,89 +133,89 @@ class PrintingVisitor extends Visitor
         }
     }
 
-    private function assertAttribute(Node $node, string $attr, string $classname): void
+    private function assertAttribute(Node $node, string $attr, string $classname) 
     {
         if (!$node->hasAttribute($attr) || !$node->getAttribute($attr) instanceof $classname) {
             throw new LogicException("Failing attribute '$attr' in {$node->getType()}");
         }
     }
 
-    public function beforeRequestOpening(): void
+    public function beforeRequestOpening() 
     {
         $this->output->write('01');
     }
 
-    public function afterRequestOpening(): void
+    public function afterRequestOpening() 
     {
         $this->output->write(self::EOL);
     }
 
-    public function beforeCreateMandateRequest(): void
+    public function beforeCreateMandateRequest() 
     {
         $this->output->write('04');
     }
 
-    public function afterCreateMandateRequest(): void
+    public function afterCreateMandateRequest() 
     {
         $this->output->write(self::EOL);
     }
 
-    public function beforeDeleteMandateRequest(): void
+    public function beforeDeleteMandateRequest() 
     {
         $this->output->write('03');
     }
 
-    public function afterDeleteMandateRequest(): void
+    public function afterDeleteMandateRequest() 
     {
         $this->output->write(self::EOL);
     }
 
-    public function beforeAcceptDigitalMandateRequest(): void
+    public function beforeAcceptDigitalMandateRequest() 
     {
         $this->output->write('04');
     }
 
-    public function afterAcceptDigitalMandateRequest(): void
+    public function afterAcceptDigitalMandateRequest() 
     {
         $this->output->write(self::EOL);
     }
 
-    public function beforeRejectDigitalMandateRequest(): void
+    public function beforeRejectDigitalMandateRequest() 
     {
         $this->output->write('04');
     }
 
-    public function afterRejectDigitalMandateRequest(): void
+    public function afterRejectDigitalMandateRequest() 
     {
         $this->output->write(self::EOL);
     }
 
-    public function beforeUpdateMandateRequest(): void
+    public function beforeUpdateMandateRequest() 
     {
         $this->output->write('05');
     }
 
-    public function afterUpdateMandateRequest(): void
+    public function afterUpdateMandateRequest() 
     {
         $this->output->write(self::EOL);
     }
 
-    public function beforeIncomingPaymentRequest(): void
+    public function beforeIncomingPaymentRequest() 
     {
         $this->output->write('82');
     }
 
-    public function afterIncomingPaymentRequest(): void
+    public function afterIncomingPaymentRequest() 
     {
         $this->output->write(self::EOL);
     }
 
-    public function beforeOutgoingPaymentRequest(): void
+    public function beforeOutgoingPaymentRequest() 
     {
         $this->output->write('32');
     }
 
-    public function afterOutgoingPaymentRequest(): void
+    public function afterOutgoingPaymentRequest() 
     {
         $this->output->write(self::EOL);
     }

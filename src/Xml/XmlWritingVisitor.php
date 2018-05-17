@@ -46,7 +46,7 @@ class XmlWritingVisitor implements VisitorInterface
         $this->stringifier = $stringifier;
     }
 
-    public function visitBefore(Node $node): void
+    public function visitBefore(Node $node) 
     {
         $this->xmlWriter->startElement($node->getType());
 
@@ -59,7 +59,7 @@ class XmlWritingVisitor implements VisitorInterface
         }
     }
 
-    public function visitAfter(Node $node): void
+    public function visitAfter(Node $node) 
     {
         $this->xmlWriter->endElement();
     }
